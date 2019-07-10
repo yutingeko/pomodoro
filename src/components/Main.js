@@ -13,7 +13,7 @@ const Main = () => {
     padding: 0;
 
     .main-nav {
-      width: 30%;
+      width: 35%;
       height: 100%;
       background: #003164;
     }
