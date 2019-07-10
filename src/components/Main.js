@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Timer from "./Timer";
 const Main = () => {
   const StyledMain = styled.div`
+    position: relative;
     display: flex;
     justify-content: flex-end;
     background: #ffedf7;
@@ -18,6 +20,7 @@ const Main = () => {
   `;
   return (
     <StyledMain>
+      <Timer />
       <div className="main-nav" />
     </StyledMain>
   );
