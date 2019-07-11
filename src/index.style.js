@@ -37,9 +37,9 @@ const GlobalStyle = createGlobalStyle`
     /* Support for IE. */
     font-feature-settings: 'liga';
   }
-  
+
   html {
-    font-size: 15px;
+    font-size: 16px;
     font-family: Roboto, Arial, Helvetica, sans-serif;
   }
   
