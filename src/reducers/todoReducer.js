@@ -1,13 +1,12 @@
-export default function(state = {}, action) {
+export const addTodo = payload => ({
+  type: "ADD_TODO",
+  payload
+});
+
+export default function(state = [], action) {
   switch (action.type) {
-    case "GET_ARTISTS":
-      return { ...state, artistList: action.payload };
-    case "GET_ARTISTS_ALL":
-      return { ...state, artistList: action.payload };
-    case "GET_ARTISTS_DETAIL":
-      return { ...state, artistData: action.payload };
-    case "CLEAR_ARTISTS_DETAIL":
-      return { ...state, artistData: action.payload };
+    case "ADD_TODO":
+      return [...state, action.payload];
     default:
       return state;
   }
