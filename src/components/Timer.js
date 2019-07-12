@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
+import { connect } from "react-redux";
+import { startTimer } from "../reducers/timerReducer";
 const TimerContainer = styled.div`
   position: absolute;
   top: 25vh;
@@ -16,6 +17,15 @@ const TimerCounter = styled.div`
   border-radius: 100%;
   z-index: 100;
 
+  .material-icons {
+    position: absolute;
+    top: 25vh;
+    left: 25vh;
+    font-size: 8rem;
+    color: #fff;
+    transform: translate(-4rem, -4rem);
+  }
+
   &:after {
     content: "";
     position: absolute;
@@ -30,12 +40,28 @@ const TimerCounter = styled.div`
   }
 `;
 
-const Timer = React.memo(() => {
+const Timer = React.memo(({ startTimer }) => {
+  const [play, setPlay] = useState(false);
+  const runTimer = () => {
+    startTimer({
+      duration: 25,
+      flag: !play
+    });
+    setPlay(!play);
+  };
+
   return (
     <TimerContainer>
-      <TimerCounter />
+      <TimerCounter onClick={runTimer}>
+        <i className="material-icons">play_circle_filled</i>
+      </TimerCounter>
     </TimerContainer>
   );
 });
 
-export default Timer;
+export default connect(
+  null,
+  {
+    startTimer
+  }
+)(Timer);
