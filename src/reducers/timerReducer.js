@@ -4,10 +4,9 @@ export const startTimer = payload => ({
 });
 
 export default function(state = {}, action) {
-  const { duration, flag } = action.payload || {};
   switch (action.type) {
     case "START_TIMER":
-      return { duration, flag };
+      return { ...action.payload };
     default:
       return state;
   }

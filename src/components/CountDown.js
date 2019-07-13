@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { startTimer } from "../reducers/timerReducer";
@@ -19,8 +19,9 @@ const CountDownNum = styled.span`
 `;
 
 const CountDown = React.memo(({ timerState, startTimer }) => {
-  const { duration = 25, flag } = timerState || {};
-  const [countdown, setCountdown] = useState(0);
+  const { duration = 25, flag, reset } = timerState || {};
+  console.log("reset", reset);
+  const [countdown, setCountdown] = useState(duration * 60 * 1000);
   const handleCountDown = () => {
     setCountdown(prev => {
       if (prev - 1000 >= 0 && flag) {
@@ -36,6 +37,9 @@ const CountDown = React.memo(({ timerState, startTimer }) => {
 
   useEffect(() => {
     if (flag && duration) {
+      setCountdown(countdown || duration * 60 * 1000);
+    }
+    if (reset) {
       setCountdown(duration * 60 * 1000);
     }
     const timer = flag && setInterval(handleCountDown, 1000);
