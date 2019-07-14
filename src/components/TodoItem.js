@@ -6,8 +6,8 @@ const FakeRadio = styled.span`
   display: inline-block;
   width: ${({ specialStyle }) => (specialStyle ? "1.5rem" : "1rem")};
   height: ${({ specialStyle }) => (specialStyle ? "1.5rem" : "1rem")};
-  margin-right: 5px;
-  border: 2px solid #003164;
+  margin-right: 10px;
+  border: 2px solid ${({subPage}) => subPage ? '#fff' : '#003164'};
   border-radius: 100%;
 
   .material-icons {
@@ -19,7 +19,7 @@ const Todos = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #003164;
+  color: ${({subPage}) => subPage ? '#fff' : '#003164'};
   padding: 10px 5px;
   cursor: pointer;
   border-bottom: ${({ specialStyle }) =>
@@ -38,6 +38,7 @@ const Todos = styled.div`
 
 const TodoItem = ({
   data: { id, todo, completed },
+  subPage,
   completeTodo,
   specialStyle = false,
   moveToFirst
@@ -46,9 +47,9 @@ const TodoItem = ({
     completeTodo(id);
   };
   return (
-    <Todos completed={completed} specialStyle={specialStyle}>
+    <Todos completed={completed} specialStyle={specialStyle} subPage={subPage}>
       <div className="todoContent" onClick={handleClick}>
-        <FakeRadio completed={completed} specialStyle={specialStyle}>
+        <FakeRadio completed={completed} specialStyle={specialStyle} subPage={subPage}>
           {completed ? <i className="material-icons">done</i> : null}
         </FakeRadio>
         <span>{todo}</span>

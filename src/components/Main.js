@@ -42,8 +42,9 @@ const MainInfo = styled.div`
 `;
 
 const Nav = styled.div`
-  text-align: right;
-  margin-right: 20px;
+  position: absolute;
+  right: 2rem;
+
 `;
 
 const Main = ({ todos, completeTodo, moveToFirst }) => {

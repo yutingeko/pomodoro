@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import NavList from "./NavList";
 
 const Layout = styled.div`
+  display: flex;
   width: ${({ width }) => width || "100%"};
   height: 100vh;
   color: #fff;
   background: #003164;
+  padding: 30px;
 `;
 
 const Title = styled.span`
@@ -21,7 +23,7 @@ const Title = styled.span`
 `;
 
 const Nav = styled.div`
-  padding: 30px;
+  margin-right: 60px;
 `;
 
 const Close = styled.i`
@@ -31,6 +33,11 @@ const Close = styled.i`
   top: 2rem;
   font-size: 3rem;
   padding: 10px;
+`;
+
+const Children = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const BasicLayout = React.memo(({ width, children, withNav }) => {
@@ -46,7 +53,7 @@ const BasicLayout = React.memo(({ width, children, withNav }) => {
           </Nav>
         </>
       )}
-      {children}
+      <Children>{children}</Children>
       <Title>POMODORO</Title>
     </Layout>
   );

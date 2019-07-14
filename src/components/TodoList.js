@@ -6,7 +6,8 @@ const TodoList = ({
   withoutCompleted,
   completeTodo,
   moveToFirst,
-  limit
+  limit = 100,
+  subPage,
 }) => {
   const renderList = withoutCompleted
     ? todos.filter(item => !item.completed)
@@ -15,6 +16,7 @@ const TodoList = ({
     return index < limit ? (
       <TodoItem
         key={data.id}
+        subPage={subPage}
         data={data}
         completeTodo={completeTodo}
         moveToFirst={moveToFirst}
