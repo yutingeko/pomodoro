@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import Timer from "./Timer";
 import CountDown from "./CountDown";
 import TodoInput from "./TodoInput";
@@ -35,7 +36,7 @@ const MainInfo = styled.div`
   margin-left: 60px;
 
   > div {
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
   }
 `;
 
@@ -52,10 +53,38 @@ const Title = styled.span`
 const Nav = styled.div`
   width: 35%;
   height: 100%;
+  color: #fff;
   background: #003164;
+
+  li {
+    text-align: right;
+    margin: 40px 60px 0 60px;
+  }
+
+  i {
+    font-size: 2rem;
+  }
+
+  a {
+    color: #fff;
+  }
 `;
 
 const Main = ({ todos, completeTodo, moveToFirst }) => {
+  const navList = [
+    {
+      icon: "format_list_bulleted",
+      path: "/todolist"
+    },
+    {
+      icon: "assessment",
+      path: "/analytics"
+    },
+    {
+      icon: "library_music",
+      path: "/ringtones"
+    }
+  ];
   return (
     <StyledMain>
       <MainInfo>
@@ -76,6 +105,15 @@ const Main = ({ todos, completeTodo, moveToFirst }) => {
       </MainInfo>
       <Timer />
       <Nav>
+        <ul>
+          {navList.map(({ path, icon }) => (
+            <li>
+              <Link to={path}>
+                <i className="material-icons">{icon}</i>
+              </Link>
+            </li>
+          ))}
+        </ul>
         <Title>POMODORO</Title>
       </Nav>
     </StyledMain>
