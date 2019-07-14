@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const List = styled.ul`
@@ -16,8 +16,12 @@ const List = styled.ul`
   a {
     display: inline-flex;
     align-items: center;
-    color: ${({ color }) => color || "#FF4384"};
+    color: ${({ color }) => color || "rgba(255,255,255,.2)"};
     text-decoration: none;
+  }
+
+  .active {
+    color: #ff4384;
   }
 
   .nav-text {
@@ -48,10 +52,10 @@ const NavList = React.memo(({ withText = false, color }) => {
     <List color={color} withText={withText}>
       {navList.map(({ path, icon, text }) => (
         <li>
-          <Link to={path}>
+          <NavLink to={path} activeClassName="active">
             <i className="material-icons">{icon}</i>
             {withText && <span className="nav-text">{text.toUpperCase()}</span>}
-          </Link>
+          </NavLink>
         </li>
       ))}
     </List>
