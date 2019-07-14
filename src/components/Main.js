@@ -32,7 +32,7 @@ const MainInfo = styled.div`
   left: 0;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 40px;
   margin-left: 60px;
 
   > div {
