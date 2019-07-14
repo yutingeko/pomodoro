@@ -10,13 +10,13 @@ const List = styled.ul`
 
   i {
     margin-right: 10px;
-    font-size: 2rem;
+    font-size: ${({ withText }) => (withText ? "1.5rem" : "2rem")};
   }
 
   a {
     display: inline-flex;
     align-items: center;
-    color: #fff;
+    color: ${({ color }) => color || "#FF4384"};
     text-decoration: none;
   }
 
@@ -25,7 +25,7 @@ const List = styled.ul`
   }
 `;
 
-const NavList = React.memo(({ withText = false }) => {
+const NavList = React.memo(({ withText = false, color }) => {
   const navList = [
     {
       icon: "format_list_bulleted",
@@ -45,7 +45,7 @@ const NavList = React.memo(({ withText = false }) => {
   ];
 
   return (
-    <List>
+    <List color={color} withText={withText}>
       {navList.map(({ path, icon, text }) => (
         <li>
           <Link to={path}>

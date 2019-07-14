@@ -68,7 +68,7 @@ const Main = ({ todos, completeTodo, moveToFirst }) => {
       <Timer />
       <BasicLayout width="35%">
         <Nav>
-          <NavList />
+          <NavList color="#fff" />
         </Nav>
       </BasicLayout>
     </StyledMain>
