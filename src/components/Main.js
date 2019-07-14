@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import Timer from "./Timer";
 import CountDown from "./CountDown";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import TodoItem from "./TodoItem";
+import BasicLayout from "./BasicLayout";
+import NavList from "./NavList";
 import { completeTodo, moveToFirst } from "../reducers/todoReducer";
 
 const FirstTodo = ({ todo, completeTodo }) => {
@@ -40,51 +41,12 @@ const MainInfo = styled.div`
   }
 `;
 
-const Title = styled.span`
-  position: absolute;
-  color: #fff;
-  font-weight: bold;
-  font-size: 24px;
-  bottom: 100px;
-  right: 0;
-  transform: rotate(90deg);
-`;
-
 const Nav = styled.div`
-  width: 35%;
-  height: 100%;
-  color: #fff;
-  background: #003164;
-
-  li {
-    text-align: right;
-    margin: 40px 60px 0 60px;
-  }
-
-  i {
-    font-size: 2rem;
-  }
-
-  a {
-    color: #fff;
-  }
+  text-align: right;
+  margin-right: 20px;
 `;
 
 const Main = ({ todos, completeTodo, moveToFirst }) => {
-  const navList = [
-    {
-      icon: "format_list_bulleted",
-      path: "/todolist"
-    },
-    {
-      icon: "assessment",
-      path: "/analytics"
-    },
-    {
-      icon: "library_music",
-      path: "/ringtones"
-    }
-  ];
   return (
     <StyledMain>
       <MainInfo>
@@ -104,18 +66,11 @@ const Main = ({ todos, completeTodo, moveToFirst }) => {
         </div>
       </MainInfo>
       <Timer />
-      <Nav>
-        <ul>
-          {navList.map(({ path, icon }) => (
-            <li>
-              <Link to={path}>
-                <i className="material-icons">{icon}</i>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Title>POMODORO</Title>
-      </Nav>
+      <BasicLayout width="35%">
+        <Nav>
+          <NavList />
+        </Nav>
+      </BasicLayout>
     </StyledMain>
   );
 };

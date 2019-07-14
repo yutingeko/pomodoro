@@ -5,26 +5,28 @@ import { startTimer } from "../reducers/timerReducer";
 
 const TimerContainer = styled.div`
   position: absolute;
-  top: 25vh;
-  left: calc(65%);
-  transform: translateX(-25vh);
+  top: 32vh;
+  left: calc(75vw);
+  transform: translateX(-25vw);
 
   .stop {
     font-size: 24px;
     color: #fff;
-    position: absolute;
-    transform: translate(32vh, -20vh);
+    position: relative;
     z-index: 100;
     font-size: 24px;
     color: ${({ play }) => (play ? "#ff4384" : "#fff")};
     cursor: pointer;
+    bottom: 10vw;
+    left: 20vw;
+    display: inline-block;
   }
 `;
 
 const TimerCounter = styled.div`
   position: relative;
-  width: 50vh;
-  height: 50vh;
+  width: 30vw;
+  height: 30vw;
   background: ${({ play }) => (play ? "#fff" : "#ff4384")};
   border-radius: 100%;
   z-index: 100;
@@ -32,8 +34,8 @@ const TimerCounter = styled.div`
 
   .material-icons {
     position: absolute;
-    top: 25vh;
-    left: 25vh;
+    top: 15vw;
+    left: 15vw;
     font-size: 8rem;
     color: ${({ play }) => (play ? "#ff4384" : "#fff")};
     transform: translate(-4rem, -4rem);
@@ -42,11 +44,11 @@ const TimerCounter = styled.div`
   &:after {
     content: "";
     position: absolute;
-    right: -2.5vh;
-    top: -2.5vh;
+    right: -1.5vw;
+    top: -1.5vw;
     display: inline-block;
-    width: 54vh;
-    height: 54vh;
+    width: 32vw;
+    height: 32vw;
     border: 4px solid #ff4384;
     border-radius: 100%;
     z-index: 0;
