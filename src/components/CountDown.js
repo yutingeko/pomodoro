@@ -20,7 +20,6 @@ const CountDownNum = styled.span`
 
 const CountDown = React.memo(({ timerState, startTimer }) => {
   const { duration = 25, flag, reset } = timerState || {};
-  console.log("reset", reset);
   const [countdown, setCountdown] = useState(duration * 60 * 1000);
   const handleCountDown = () => {
     setCountdown(prev => {

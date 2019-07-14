@@ -9,13 +9,13 @@ const Container = styled.div`
 
 const Input = styled.input`
   font-size: 16px;
-  font-style: italic;
   padding: 10px;
   width: 25rem;
   border: none;
   outline: none;
 
   &::placeholder {
+    font-style: italic;
     color: #ff4384;
   }
 `;
