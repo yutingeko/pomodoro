@@ -23,7 +23,7 @@ const Title = styled.span`
 `;
 
 const Nav = styled.div`
-  margin-right: 60px;
+  margin-right: 15vw;
 `;
 
 const Close = styled.i`

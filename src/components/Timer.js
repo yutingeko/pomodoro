@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { startTimer } from "../reducers/timerReducer";
 
 const TimerContainer = styled.div`
   position: absolute;
-  top: 32vh;
-  left: calc(75vw);
-  transform: translateX(-25vw);
+  top: 30vh;
+  right: 25%;
 
   .stop {
     font-size: 24px;
